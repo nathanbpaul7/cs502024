@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <hr>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form action="/" method="post">
+                    <input autocomplete="off" name="name" type="text" placeholder="Name">
+                    <hr>
+                        <div class="dateContainer">
+                            <input name="month" placeholder="Month" type="number" min="1" max="12">
+                            <input name="day" placeholder="Day" type="number" min="1" max="31">
+                        </div>
+                       <hr>
+                    <button type="submit">Add Birthday to Table</button>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
+                        <tr>
+                                <td>
+                                    {{ birthday["name"] }}
+                                </td>
+                                <td>
+                                    {{ birthday["month"] }}/{{ birthday["day"]}}
+                                </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script>
+            // declare constants and event listeners
+            document.addEventListener("DOMContentLoaded", () => {
+                const tableItems = document.querySelectorAll("td");
+                tableItems.forEach(tableItem => {
+                    tableItem.addEventListener("click", () => editTask(tableItem));
+                });
+
+                function editTask(tableItem) {
+                    const existingText = tableItem.textContent;
+                    const inputText = document.createElement("input");
+
+                    inputText.value = existingText;
+                    tableItem.textContent = '';
+                    tableItem.appendChild(inputText);
+                    inputText.focus();
+
+                    inputText.addEventListener("blur", () => {
+                        const updatedText = inputText.value.trim();
+                        if (updatedText) {
+                            tableItem.textContent = updatedText;
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stocks
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="post">
+    <div class="mb-3">
+        <label for="symbol">Stocks to Sell:</label>
+        <select class="custom-select" autofocus name="symbol">
+            <option selected disabled>Company Symbol - Shares</option>
+            {% for stock in stocks %}
+                <option value="{{ stock['symbol'] }}">{{ stock["symbol"] }} - {{ stock["shares"] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Number of Shares" type="number" min='1'>
+    </div>
+    <button class="btn btn-primary" type="submit">Sell Stocks</button>
+</form>
+<hr>
+<br><br>
+<div class="container-fluid">
+    <p>
+        Lookup stock prices in real-time by inputting symbol below. Results should populate when you click out of the text field.
+    </p>
+        <div class="mb-3">
+            <input id="quoteRT" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Stock Symbol" type="text">
+        </div>
+
+    <p id="symblDisplay">
+    </p>
+    <p id="priceDisplay">
+    </p>
+
+        <script>
+
+            let input = document.querySelector('#quoteRT');
+            input.addEventListener('blur', async function() {
+                let response = await fetch('/look?symbol=' + input.value);
+                if (response.ok) {
+                    let quote = await response.json();
+                    document.querySelector('#symblDisplay').innerHTML = "<strong>Stock: </strong>" + quote["symbol"]
+                    document.querySelector('#priceDisplay').innerHTML = "<strong>Price: </strong>" + quote["price"]
+                }
+                else {
+                console.error('Failed to fetch data:', response.statusText);
+                }
+            });
+
+        </script>
+</div>
+{% endblock %}

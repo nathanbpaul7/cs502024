@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <title>Todo</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="/script.js" defer></script>
+  </head>
+  <body style="background: var(--gradient);">
+    <header class="p-3 text-bg-dark">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li><a href="/index.html" class="nav-link px-2 text-secondary">Home</a></li>
+                  <li><a href="/about.html" class="nav-link px-2 text-white">About</a></li>
+                  <li><a href="/members.html" class="nav-link px-2 text-white">Members</a></li>
+                  <li><a href="/music.html" class="nav-link px-2 text-white">Music</a></li>
+                  <li><a href="/process.html" class="nav-link px-2 text-white">Process</a></li>
+                  <li><a href="/to-do.html" class="nav-link px-2 text-white">To-Do app (from tutorial)</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                  <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                  <button type="button" class="btn btn-outline-light me-2">Login</button>
+                  <a class="btn btn-warning" href="/members.html" role="button">Sign Up</a>
+                </div>
+              </div>
+            </div>
+      </header>
+      <hr>
+      <section class="todo">
+       <h2 class="td">To-do list</h2>
+        <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          id="todoInput"
+          placeholder="Add a new todo"
+        />
+        <button class="add-btn">Add</button>
+      </div>
+      <ul class="scroll">
+        <li id="todoList"></li>
+      </ul>
+      <div>
+        <hr class="counter" />
+        <div class="counter-container">
+          <p><span id="todoCount">0</span> items total</p>
+          <button id="deleteButton">Delete All</button>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <footer>
+      <div class="footer">
+        <p class="made-by">Made By</p>
+        <p class="author">Nathan Paul via tutorial by Ade-Mir <a href="https://github.com/Ade-mir/To-Do-List-Tutorial">Github</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
