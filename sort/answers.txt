@@ -1,0 +1,14 @@
+sort1 uses: bubble sort
+
+How do you know?: when sorting an already sorted large list, its run time was significantly faster than when it was a random list
+
+
+sort2 uses: merge sort
+
+How do you know?: fastest run time with large unsorted text file
+
+
+sort3 uses: selection sort
+
+How do you know?: It took significantly longer than sort1 when handling an already sorted text file.
+

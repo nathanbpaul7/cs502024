@@ -1,0 +1,13 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+
+I'd characterize it as a "purple" aura because they have the highest average in danceability, followed by energy.
+This sounds like someone who likes music that make the move and groove.  According to Mystic Michaela, that would land
+them in the purple aura.
+
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+
+Well its inferring a lot about people's use of the app, first and foremost.  I personally use spotify to play music not only for myself,
+but often for others or to curate a vibe in a particular place.  It's possible that the top 100 songs do not represent a personal selection,
+but rather a selection for others.  Also, there are far more factors that create mood from music besides energy, danceability, and valence (happiness factor).
+Lyrical content can be a huge determining factor in why someone chooses to listen to a song, regardless of the musical components around those lyrics.
+It seems super reductive to me to try and assign overall moods or intentions to a user's interaction with music that purport to be deterministic.

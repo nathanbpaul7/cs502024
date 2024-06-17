@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            function checkMult(elementSelected, color) {
+                elementSelected.style.backgroundColor = color;
+                if (color === 'red'){
+                    document.querySelector("#multResponse").innerHTML = "Incorrect"
+                }
+                else if (color === 'green'){
+                    document.querySelector("#multResponse").innerHTML = "Correct!"
+                }
+            };
+            function checkFreeResponse(event) {
+
+                // Get the element which triggered the event
+                let button = event.target;
+
+                // Get the input element corresponding to the button
+                let input = button.parentElement.querySelector('input');
+
+                // Check for correct answer
+                if (input.value === 'Xena') {
+                    input.style.backgroundColor = 'Green';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                }
+                else {
+                    input.style.backgroundColor = 'Red';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3 id="multQ"> Who's the best poopy alive in the world?</h3>
+                <p id='multResponse'></p>
+                <table>
+                    <tr>
+                        <td>
+                            <button class="i" onclick="checkMult(this, 'red')">Carmy Carmeleon</button>
+                        </td>
+                        <td>
+                            <button class="c" onclick="checkMult(this, 'green')">Mean Bean</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="i" onclick="checkMult(this, 'red')">Cholulu Bulu</button>
+                        </td>
+                        <td>
+                            <button class="i" onclick="checkMult(this, 'red')">Petey Pie</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Name the fluffiest queen to ever walk the face of this earth: </h3>
+                <input type="text"></input>
+                <button onclick="checkFreeResponse(event)">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
